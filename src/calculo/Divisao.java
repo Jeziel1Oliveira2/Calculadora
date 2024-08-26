@@ -1,8 +1,8 @@
 package calculo;
 
-public class Divisao {
-    private int num1;
-    private int num2;
+import numeros.Numeros;
+
+public class Divisao extends Numeros {
 
     public int divisaoRessultado (int num1, int num2) {
         int resultado = num1 / num2;

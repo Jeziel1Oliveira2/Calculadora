@@ -2,6 +2,7 @@ import calculo.Multiplicacao;
 import calculo.Divisao;
 import calculo.Soma;
 import calculo.Subtracao;
+import numeros.Numeros;
 
 import java.util.Scanner;
 
@@ -15,6 +16,7 @@ public class Main {
         Subtracao subtracao = new Subtracao();
         Multiplicacao multiplicacao = new Multiplicacao();
         Divisao divisao = new Divisao();
+Numeros numeros = new Numeros();
 
         //criando as variaveis
         int numero1;
@@ -24,38 +26,54 @@ public class Main {
         System.out.println(
                 "Digite o primeiro numero para calcular"
         );
-        numero1 = scanner.nextInt();
+        numeros.setNum1(scanner.nextInt());
         System.out.println(
                 "Digite o segundo numero para calcular"
         );
-        numero2 = scanner.nextInt();
+        numeros.setNum2(scanner.nextInt());
 
         //soma
         System.out.println(
+                numeros.getNum1() +
+                        " + " +
+                numeros.getNum2() +
+                        " = " +
                 somando.somando(
-                        numero1,
-                        numero2
+                        numeros.getNum1(),
+                        numeros.getNum2()
                 )
         );
         //subtração
         System.out.println(
+                numeros.getNum1() +
+                        " - " +
+                numeros.getNum2() +
+                        " = " +
                 subtracao.subtracao(
-                        numero1,
-                        numero2
+                        numeros.getNum1(),
+                        numeros.getNum2()
                 )
         );
         //multiplicação
         System.out.println(
+                numeros.getNum1() +
+                        " * " +
+                numeros.getNum2() +
+                        " = " +
                 multiplicacao.multiplicacao(
-                        numero1,
-                        numero2
+                        numeros.getNum1(),
+                        numeros.getNum2()
                 )
         );
         //divisão
         System.out.println(
+                numeros.getNum1() +
+                        " / " +
+                numeros.getNum2() +
+                        " = " +
                 divisao.divisaoRessultado(
-                        numero1,
-                        numero2
+                        numeros.getNum1(),
+                        numeros.getNum2()
                 )
         );
     }
