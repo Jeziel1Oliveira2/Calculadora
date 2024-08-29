@@ -1,8 +1,10 @@
-import calculo.Multiplicacao;
-import calculo.Divisao;
-import calculo.Soma;
-import calculo.Subtracao;
-import numeros.Numeros;
+import calculadora.VerificarNumOpe;
+import calculadora.listas.operadores.ListaOperadores;
+import calculadora.operacoes.Multiplicacao;
+import calculadora.operacoes.Divisao;
+import calculadora.operacoes.Soma;
+import calculadora.operacoes.Subtracao;
+import calculadora.listas.numeros.ListaNumeros;
 
 import java.util.Scanner;
 
@@ -11,70 +13,33 @@ public class Main {
         //craindo o scanner
         Scanner scanner = new Scanner(System.in);
 
-        //criando as variaveis para pegar os imports dos calculos
-        Soma somando = new Soma();
-        Subtracao subtracao = new Subtracao();
-        Multiplicacao multiplicacao = new Multiplicacao();
-        Divisao divisao = new Divisao();
-Numeros numeros = new Numeros();
-
-        //criando as variaveis
-        int numero1;
-        int numero2;
+        //criei a variavel de numeros
+        ListaNumeros numeros = new ListaNumeros();
+        ListaOperadores operadores = new ListaOperadores();
+        //criando as variaveis para pegar os imports dos calculo
 
         //criando as mensagens colocando para ler as variaveis
         System.out.println(
                 "Digite o primeiro numero para calcular"
         );
-        numeros.setNum1(scanner.nextInt());
+        numeros.addList(scanner.nextDouble());
+
+        System.out.println(
+                "Digite o operador para calcular"
+        );
+        operadores.addList(scanner.next());
+
         System.out.println(
                 "Digite o segundo numero para calcular"
         );
-        numeros.setNum2(scanner.nextInt());
+        numeros.addList(scanner.nextDouble());
 
-        //soma
-        System.out.println(
-                numeros.getNum1() +
-                        " + " +
-                numeros.getNum2() +
-                        " = " +
-                somando.somando(
-                        numeros.getNum1(),
-                        numeros.getNum2()
-                )
-        );
-        //subtração
-        System.out.println(
-                numeros.getNum1() +
-                        " - " +
-                numeros.getNum2() +
-                        " = " +
-                subtracao.subtracao(
-                        numeros.getNum1(),
-                        numeros.getNum2()
-                )
-        );
-        //multiplicação
-        System.out.println(
-                numeros.getNum1() +
-                        " * " +
-                numeros.getNum2() +
-                        " = " +
-                multiplicacao.multiplicacao(
-                        numeros.getNum1(),
-                        numeros.getNum2()
-                )
-        );
-        //divisão
-        System.out.println(
-                numeros.getNum1() +
-                        " / " +
-                numeros.getNum2() +
-                        " = " +
-                divisao.divisaoRessultado(
-                        numeros.getNum1(),
-                        numeros.getNum2()
-                )
+        //pegando os numeros das listas que foram digitados
+        VerificarNumOpe verificarNumOpe = new VerificarNumOpe();
+        verificarNumOpe.verificacaoNumerosOperadores(
+                numeros.getArmazenamentoNumeros().get(0),
+                numeros.getArmazenamentoNumeros().get(0),
+                operadores.getArmazenamentoOperadores().get(0)
         );
     }
 }
